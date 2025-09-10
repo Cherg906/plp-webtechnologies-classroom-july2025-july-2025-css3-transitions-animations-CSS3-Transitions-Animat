@@ -1,0 +1,84 @@
+/* ========================
+   General Page Styling
+======================== */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 50px;
+}
+
+/* ========================
+   Part 1: CSS Transitions
+   - Button with hover effect
+======================== */
+#hoverBtn {
+  padding: 10px 20px;
+  font-size: 18px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  /* Transition effect for background + scale */
+  transition: background 0.5s ease, transform 0.3s ease;
+}
+
+#hoverBtn:hover {
+  background: #2ecc71; /* Smooth color change */
+  transform: scale(1.1); /* Slight zoom */
+}
+
+/* ========================
+   Part 2: Box Animation Triggered by JS
+======================== */
+#box {
+  width: 100px;
+  height: 100px;
+  background: tomato;
+  margin: 30px auto;
+  /* Smooth transform for movement/rotation */
+  transition: transform 1s ease-in-out;
+}
+
+/* Class added/removed via JS */
+.box-move {
+  transform: translateX(200px) rotate(45deg);
+}
+
+/* ========================
+   Part 3: Modal Styling + Animation
+======================== */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;               /* Hidden by default */
+  pointer-events: none;      /* Prevent clicks */
+  transition: opacity 0.5s ease; /* Fade effect */
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  /* Slide in animation for modal content */
+  animation: slideIn 0.5s forwards;
+}
+
+.modal.show {
+  opacity: 1;
+  pointer-events: all; /* Make clickable */
+}
+
+/* Keyframes for sliding modal down */
+@keyframes slideIn {
+  from { transform: translateY(-200px); }
+  to { transform: translateY(0); }
+}
+
+/* Utility class to hide modal completely */
+.hidden {
+  display: none;
+}
